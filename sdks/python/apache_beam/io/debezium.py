@@ -166,5 +166,5 @@ class ReadFromDebezium(PTransform):
             self.URN,
             NamedTupleBasedPayloadBuilder(self.params),
             self.expansion_service,
-        ).with_output_types(str)
+        )
         | 'JsonToDict' >> Map(json.loads).with_output_types(dict))
